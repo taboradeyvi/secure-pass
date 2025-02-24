@@ -7,40 +7,41 @@ export class EntryPass extends BaseEntity {
   @Column({ type: 'varchar', length: 50, unique: true })
   code: string;
 
-  @CreateDateColumn({ type: 'timestamptz' })
+  @CreateDateColumn({ name: 'entry_date', type: 'timestamptz' })
   entryDate: Date;
 
   @Column({ type: 'varchar', length: 300 })
   observation?: string;
 
-  @Column({ type: 'varchar', length: 300 })
+  @Column({ name: 'status_observation', type: 'varchar', length: 300 })
   statusObservation?: string;
 
-  @Column({ type: 'varchar', length: 100 })
+  @Column({ name: 'visor_name', type: 'varchar', length: 100 })
   visitorName: string;
 
   @Column({
+    name: 'visitor_type_id_identification',
     type: 'enum',
     enum: VisitorTypeIdentification,
     default: VisitorTypeIdentification.DNI,
   })
   visitorTypeIdentification: VisitorTypeIdentification;
 
-  @Column({ type: 'varchar', length: 20 })
+  @Column({ name: 'visitor_id_number', type: 'varchar', length: 20 })
   visitorIdNumber: string;
 
-  @Column({ type: 'varchar', length: 20 })
+  @Column({ name: 'vehicle_plate', type: 'varchar', length: 20 })
   vehiclePlate: string;
 
-  @Column({ type: 'varchar', length: 20 })
+  @Column({ name: 'vehicle_color', type: 'varchar', length: 20 })
   vehicleColor: string;
 
-  @Column({ type: 'varchar', length: 50 })
+  @Column({ name: 'vehicle_mark', type: 'varchar', length: 50 })
   vehicleMark: string;
 
-  @CreateDateColumn({ type: 'timestamptz' })
+  @CreateDateColumn({ name: 'entry_time', type: 'timestamptz' })
   entryTime: Date;
 
-  @CreateDateColumn({ type: 'timestamptz' })
+  @CreateDateColumn({ name: 'exit_time', type: 'timestamptz' })
   exitTime: Date;
 }

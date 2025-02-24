@@ -11,27 +11,27 @@ export abstract class BaseEntity extends TypeOrmBaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ default: true })
+  @Column({ name: 'is_active', default: true })
   isActive: boolean;
 
-  @Column({ default: false })
+  @Column({ name: 'is_deleted', default: false })
   isDeleted: boolean;
 
-  @CreateDateColumn({ type: 'timestamptz' })
+  @CreateDateColumn({ name: 'created_at', type: 'timestamptz' })
   createdAt: Date;
 
-  @Column({ nullable: true })
+  @Column({ name: 'created_by', length: 100 })
   createdBy: string;
 
-  @UpdateDateColumn({ type: 'timestamptz' })
-  updatedAt: Date;
+  @UpdateDateColumn({ name: 'updated_at', type: 'timestamptz' })
+  updatedAt?: Date;
 
-  @Column({ nullable: true })
-  updatedBy: string;
+  @Column({ name: 'created_by', length: 100 })
+  updatedBy?: string;
 
-  @DeleteDateColumn({ type: 'timestamptz', nullable: true })
-  deletedAt: Date;
+  @DeleteDateColumn({ name: 'deleted_at', type: 'timestamptz' })
+  deletedAt?: Date;
 
-  @Column({ nullable: true })
-  deletedBy: string;
+  @Column({ name: 'deleted_by', length: 100 })
+  deletedBy?: string;
 }

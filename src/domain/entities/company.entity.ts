@@ -12,13 +12,13 @@ export class Company extends BaseEntity {
   @Column({ type: 'varchar', length: 100, unique: true })
   name: string;
 
-  @Column({ type: 'varchar', length: 80 })
+  @Column({ name: 'logistic_email', type: 'varchar', length: 80 })
   logisticEmail: string;
 
-  @Column({ type: 'varchar', length: 80 })
+  @Column({ name: 'security_email', type: 'varchar', length: 80 })
   securityEmail: string;
 
-  @Column({ type: 'varchar', length: 80 })
+  @Column({ name: 'rrhh_email', type: 'varchar', length: 80 })
   rrhhEmail: string;
 
   @ManyToMany(() => Branch, (branch) => branch.companies)
