@@ -2,6 +2,8 @@ import { BaseEntity } from '../common/base.entity';
 import { Column, Entity, JoinColumn, ManyToMany, ManyToOne } from 'typeorm';
 import { Role } from './role.entity';
 import { Branch } from './branch.entity';
+import { Department } from './department.entity';
+import { Company } from './company.entity';
 
 @Entity({ name: 'users' })
 export class User extends BaseEntity {
@@ -23,6 +25,14 @@ export class User extends BaseEntity {
   @ManyToOne(() => Role, (role) => role.users, { nullable: false })
   @JoinColumn({ name: 'role_id' })
   role: Role;
+
+  @ManyToOne(() => Company, { nullable: false })
+  @JoinColumn({ name: 'company_id' })
+  company: Company;
+
+  @ManyToOne(() => Department, { nullable: false })
+  @JoinColumn({ name: 'department_id' })
+  department: Department;
 
   @ManyToMany(() => Branch, (branch) => branch.users)
   branches: Branch[];

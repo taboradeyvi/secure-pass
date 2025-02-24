@@ -4,7 +4,7 @@ import { Branch } from './branch.entity';
 import { Company } from './company.entity';
 import { BaseEntity } from '../common/base.entity';
 
-@Entity()
+@Entity({ name: 'user_branch_companies' })
 export class UserBranchCompany extends BaseEntity {
   @ManyToOne(() => User, (user) => user.id)
   user: User;
